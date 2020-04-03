@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  morse:
+    build: ./Morse
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: morse
+    hostname: morse
+    volumes:
+      - ./Morse:/Morse
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    networks:
+      - shared_network
+
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: rabbit
+    hostname: rabbit
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_DEFAULT_VHOST=/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    driver: bridge
