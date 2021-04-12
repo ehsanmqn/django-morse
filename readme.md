@@ -1,4 +1,4 @@
-The Morse project for Saman PR
+The Morse project for demonestrating Docker, Docker Compose and RabbitMQ experience
 
 ## Table of contents
 
