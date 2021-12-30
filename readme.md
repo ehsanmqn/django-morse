@@ -1,4 +1,4 @@
-The Morse project for demonestrating Docker, Docker Compose and RabbitMQ experience
+The very simple Morse messaging with Django, Docker, Docker Compose and RabbitMQ
 
 ## Table of contents
 
